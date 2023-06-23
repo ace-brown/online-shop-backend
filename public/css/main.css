@@ -52,10 +52,15 @@ main {
 }
 
 .grid {
-  display: flex;
+  width: 60%;
+  margin: 15vh auto;
+  gap: 1rem;
+  /* display: grid;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: stretch;
+  align-items: stretch; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 }
 
 .card {
@@ -75,6 +80,7 @@ main {
 }
 
 .card__image {
+  max-width: 50rem;
   width: 100%;
 }
 
