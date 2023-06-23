@@ -52,7 +52,7 @@ main {
 }
 
 .grid {
-  width: 60%;
+  width: 80%;
   margin: 15vh auto;
   gap: 1rem;
   /* display: grid;
