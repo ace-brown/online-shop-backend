@@ -11,15 +11,27 @@ module.exports = class Product {
   save() {
     const filePath = path.join(dirName, "data", "products.json");
     fs.readFile(filePath, (err, fileContent) => {
-      if (err) {
-        console.error(err);
-        return;
+      let products = [];
+      if (!err) {
+        products = JSON.parse(fileContent);
       }
-      console.log(fileContent);
+
+      products.push(this);
+
+      fs.writeFile(filePath, JSON.stringify(products), (err) => {
+        console.log(err);
+      });
     });
   }
 
-  //   static fetchAll() {
-  //     return ;
-  //   }
+  static fetchAll(cb) {
+    const filePath = path.join(dirName, "data", "products.json");
+    fs.readFile(filePath, (err, fileContent) => {
+      if (err) {
+        cb([]);
+      }
+
+      cb(JSON.parse(fileContent));
+    });
+  }
 };
