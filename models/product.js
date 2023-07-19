@@ -1,6 +1,20 @@
 const fs = require("fs");
+const path = require("path");
 
-const dirName = require("../utils/path");
+const getPoductsFromFile = (cb) => {
+  const filePath = path.join(
+    path.dirname(require.main.filename),
+    "data",
+    "products.json"
+  );
+  fs.readFile(filePath, (err, fileContent) => {
+    if (err) {
+      return cb([]);
+    }
+
+    cb(JSON.parse(fileContent));
+  });
+};
 
 module.exports = class Product {
   constructor(title) {
@@ -28,17 +42,6 @@ module.exports = class Product {
   }
 
   static fetchAll(cb) {
-    const filePath = path.join(
-      path.dirname(require.main.filename),
-      "data",
-      "products.json"
-    );
-    fs.readFile(filePath, (err, fileContent) => {
-      if (err) {
-        cb([]);
-      }
-
-      cb(JSON.parse(fileContent));
-    });
+    getPoductsFromFile(cb);
   }
 };
