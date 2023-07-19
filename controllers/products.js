@@ -25,3 +25,10 @@ exports.getProduct = (req, res, next) => {
     });
   });
 };
+
+exports.cart = (req, res, next) => {
+  res.render("shop/cart", {
+    pageTitle: "Cart",
+    path: "/shop/cart",
+  });
+};
