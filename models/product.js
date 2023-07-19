@@ -1,5 +1,4 @@
 const fs = require("fs");
-const path = require("path");
 
 const dirName = require("../utils/path");
 
@@ -9,7 +8,11 @@ module.exports = class Product {
   }
 
   save() {
-    const filePath = path.join(dirName, "data", "products.json");
+    const filePath = path.join(
+      path.dirname(require.main.filename),
+      "data",
+      "products.json"
+    );
     fs.readFile(filePath, (err, fileContent) => {
       let products = [];
       if (!err) {
@@ -25,7 +28,11 @@ module.exports = class Product {
   }
 
   static fetchAll(cb) {
-    const filePath = path.join(dirName, "data", "products.json");
+    const filePath = path.join(
+      path.dirname(require.main.filename),
+      "data",
+      "products.json"
+    );
     fs.readFile(filePath, (err, fileContent) => {
       if (err) {
         cb([]);
