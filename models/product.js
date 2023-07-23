@@ -25,6 +25,7 @@ module.exports = class Product {
   }
 
   save() {
+    this.id = Math.random().toString();
     const filePath = path.join(
       path.dirname(require.main.filename),
       "data",
@@ -46,5 +47,12 @@ module.exports = class Product {
 
   static fetchAll(cb) {
     getPoductsFromFile(cb);
+  }
+
+  static findById(id, cb) {
+    getPoductsFromFile((products) => {
+      const product = products.find((p) => p.id === id);
+      cb(product);
+    });
   }
 };
