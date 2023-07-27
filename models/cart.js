@@ -24,9 +24,9 @@ module.exports = class Cart {
       }
 
       // Checking the existing item in cart
-      const existingProductIndex = cart.products.findIndex((prod) => {
-        prod.id === id;
-      });
+      const existingProductIndex = cart.products.findIndex(
+        (prod) => prod.id === id
+      );
       const existingProduct = cart.products[existingProductIndex];
       let updatedProduct;
 
