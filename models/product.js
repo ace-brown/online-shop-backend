@@ -27,10 +27,10 @@ module.exports = class Product {
   }
 
   save() {
-    getPoductsFromFile = (products) => {
+    getPoductsFromFile((products) => {
       if (this.id) {
         const existingProductIndex = products.findIndex(
-          (prod) => prod.id === id
+          (prod) => prod.id === this.id
         );
         const updatedProducts = [...products];
         updatedProducts[existingProductIndex] = this;
@@ -45,7 +45,7 @@ module.exports = class Product {
           console.log(err);
         });
       }
-    };
+    });
   }
 
   static fetchAll(cb) {
