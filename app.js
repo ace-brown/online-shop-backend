@@ -7,20 +7,12 @@ const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 
 const errors = require("./controllers/errors");
-const db = require("./utils/database");
+const sequelize = require("./utils/database");
 
 const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", "views");
-
-db.execute("SELECT * FROM products")
-  .then((result) => {
-    console.log(result);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -30,4 +22,8 @@ app.use(shopRoutes);
 
 app.use(errors.get404);
 
-app.listen(3000);
+// Sync mehtod will have a look at all defined models and create table for them
+sequelize
+  .sync()
+  .then(app.listen(3000))
+  .catch((err) => console.log(err));
