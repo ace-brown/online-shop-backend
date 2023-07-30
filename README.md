@@ -28,7 +28,7 @@ npm install
 
 3. Configure MySQL database.
 
-   - Create a new database and import the provided SQL file (`bookshop.sql`) to set up the required tables.
+
 
 4. Set up environment variables.
 
@@ -68,10 +68,4 @@ npm start
 - EJS View Engine: Embedded JavaScript templates for rendering dynamic content.
 - MySQL: Relational database management system for data storage.
 
-## License
 
-This project is licensed under the [MIT License](LICENSE).
-
-## Acknowledgments
-
-Special thanks to the creators of Node.js, EJS, and MySQL for providing excellent tools for web development.
