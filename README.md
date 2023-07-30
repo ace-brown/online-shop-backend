@@ -1,4 +1,4 @@
-# Backend Bookshop
+# Backend Bookshop (SQL version)
 
 This is a small backend bookshop webpage built using Node.js, EJS view engine, and MySQL database. The webpage allows you to perform various operations such as adding a book, deleting a book, editing book details, and viewing all the books in the inventory.
 
